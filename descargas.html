@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-...TuCódigoDeIntegridad..." crossorigin="anonymous" />
+  <title>Descargas</title>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo"><img src="imgd/logoweb.png" alt="panda"></div>
+      <nav>
+        <ul class="menu">
+          <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+          <li><a href=""><i class="fas fa-blog"></i> Videos</a></li>
+          <li><a href="#"><i class="fas fa-user"></i> Acerca de</a></li>
+          <li><a href="#"><i class="fas fa-envelope"></i> Contacto</a></li>
+        </ul>
+      </nav>
+      
+      <div class="search">
+        <div class="search-icon"><i class="fas fa-search"></i></div>
+        <form action="#" method="get">
+          <input type="text" name="search" placeholder="Buscar..." class="search-input">
+         
+        </form>
+      </div>
+    
+      <div class="toggle-menu"><i class="fas fa-bars"></i></div>
+    </div>
+  </header>
+  
+
+<h1>Descargas</h1>
+
+<div class="descargas-container">
+  <div class="descargas-box" id="descarga1">
+    <img src="imgd/dls2024.jpeg" alt="Imagen 1">
+    <h2>DLS 2024</h2>
+    <p>descarga el DLS2024 desde la PlayStore rapido y gratis</p>
+    <button class="descarga-btn" onclick="iniciarDescarga(this, 'https://play.google.com/store/apps/details?id=com.firsttouchgames.dls7&pcampaignid=web_share')">Descargar</button>
+  </div>
+
+  <div class="descargas-box" id="descarga2">
+    <img src="imgd/dml23.png" alt="Imagen 2">
+    <h2>DLS 2023</h2>
+    <p>Descargar el Dream League Soccer 2024 para android  version 4.0.0 en formato zip o Rar.</p>
+    <button class="descarga-btn" onclick="iniciarDescarga(this, 'https://www.mediafire.com/file/vhqgjmz8pjcoq8p/DLS23.zip/file')">Descargar</button>
+  </div>
+
+  <div class="descargas-box" id="descarga3">
+    <img src="imgd/freefire.jpg" alt="Imagen 3">
+    <h2>Free Fire</h2>
+    <p>Descargar free fire 2024 para android.</p>
+    <button class="descarga-btn" onclick="iniciarDescarga(this, 'https://play.google.com/store/apps/details?id=com.dts.freefireth&pcampaignid=web_share')">Descargar</button>
+  </div>
+
+  <div class="descargas-box" id="descarga3">
+    <img src="imgd/bajoterra.jpg" alt="Imagen 3">
+    <h2>Bajo Terra </h2>
+    <p>Descarga baja terra gratis para android.</p>
+    <button class="descarga-btn" onclick="iniciarDescarga(this, 'https://play.google.com/store/apps/details?id=com.dhxmedia.slugitout2&pcampaignid=web_share')">Descargar</button>
+  </div>
+
+  <div class="descargas-box" id="descarga3">
+    <img src="imgd/fortnite.jpg" alt="Imagen 3">
+    <h2>Fortnite</h2>
+    <p>Descargar Fortnite 2024 para android.</p>
+    <button class="descarga-btn" onclick="iniciarDescarga(this, 'https://store.epicgames.com/es-MX/p/fortnite')">Descargar</button>
+  </div>
+
+  <!-- Puedes replicar esta estructura para más cuadros -->
+</div>
+
+
+<script>
+  function iniciarDescarga(botonDescarga, url) {
+    botonDescarga.disabled = true;
+    
+    let tiempoRestante = 20; // segundos
+    const temporizador = setInterval(function () {
+      botonDescarga.innerText = `Espere ... (${tiempoRestante}s)`;
+      tiempoRestante--;
+
+      if (tiempoRestante < 0) {
+        clearInterval(temporizador);
+        botonDescarga.innerText = "Descarga"; // Restaura el texto original
+        botonDescarga.disabled = false;
+        window.location.href = url; // Redirige al usuario a la URL de descarga
+      }
+    }, 1000);
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const searchForm = document.querySelector('.search form');
+    const searchInput = document.querySelector('.search-input');
+    const blogPosts = document.querySelectorAll('.blog-post');
+
+    searchForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const searchTerm = searchInput.value.toLowerCase();
+
+      let encontrado = false;
+
+      blogPosts.forEach(post => {
+        const postContent = post.innerText.toLowerCase();
+        if (postContent.includes(searchTerm)) {
+          encontrado = true;
+          // Puedes realizar acciones adicionales si se encuentra el término
+        }
+      });
+
+      if (!encontrado) {
+        alert(`No se encontró "${searchTerm}" para tu busquedad.`);
+      }
+    });
+  });
+</script>
+<script src="script.js"></script>
+</body>
+</html>
