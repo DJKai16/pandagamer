@@ -37,6 +37,14 @@
 
 <div class="descargas-container">
   <div class="descargas-box" id="descarga1">
+    <img src="imgd/mfrutal.png" alt="Imagen 1">
+    <h2>Juego de Memoria Frutal 6</h2>
+    <p>descarga este juego y prueba el poder de tu memoria.</p>
+    <button class="descarga-btn" onclick="iniciarDescarga(this, 'https://www.mediafire.com/file/pguwhafbi35e8rq/Memoria_Frutal_6_1_1.0.apk/file')">Descargar</button>
+  </div>
+
+<div class="descargas-container">
+  <div class="descargas-box" id="descarga1">
     <img src="imgd/dls2024.jpeg" alt="Imagen 1">
     <h2>DLS 2024</h2>
     <p>descarga el DLS2024 desde la PlayStore rapido y gratis</p>
@@ -79,7 +87,7 @@
   function iniciarDescarga(botonDescarga, url) {
     botonDescarga.disabled = true;
     
-    let tiempoRestante = 20; // segundos
+    let tiempoRestante = 10; // segundos
     const temporizador = setInterval(function () {
       botonDescarga.innerText = `Espere ... (${tiempoRestante}s)`;
       tiempoRestante--;
