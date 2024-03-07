@@ -218,7 +218,7 @@ nav a:hover {
   background-color: #45a049;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
   .descargas-box {
     width: 60%;
   }
